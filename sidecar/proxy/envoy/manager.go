@@ -308,7 +308,8 @@ func buildClusters(rules []api.Rule) []Cluster {
 			Name:             clusterName,
 			ServiceName:      clusterName,
 			Type:             "sds",
-			LbType:           "round_robin",
+		//	LbType:           "round_robin",
+			LbType:           "random",
 			ConnectTimeoutMs: 1000,
 		}
 

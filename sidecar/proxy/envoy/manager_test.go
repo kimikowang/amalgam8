@@ -208,7 +208,8 @@ func TestBuildClusters(t *testing.T) {
 		Name:             clusterName,
 		ServiceName:      clusterName,
 		Type:             "sds",
-		LbType:           "round_robin",
+//		LbType:           "round_robin",
+		LbType:           "random",
 		ConnectTimeoutMs: 1000,
 	}, clusters[0])
 

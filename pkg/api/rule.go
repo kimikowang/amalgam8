@@ -59,6 +59,7 @@ type Backend struct {
 	Weight  float64  `json:"weight,omitempty"`
 	Timeout float64  `json:"timeout,omitempty"`
 	Retries int      `json:"retries,omitempty"`
+	LbType string 	 `json:"lb_type,omitempty"`
 }
 
 // Action to take.

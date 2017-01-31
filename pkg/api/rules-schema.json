@@ -175,8 +175,12 @@
           "description": "Number of times to retry a failed request to a different instances. Set to 0 to disable retries",
           "type": "number",
           "minimum": 0,
-          "exclusiveMinimum": false
-        }
+          "exclusiveMinimum": false 
+        },
+	"lb_type": {
+	  "description": "The load balancing algorithm to use when picking an instance from the backend cluster.",
+	  "enum": ["round_robin","least_request","random"]
+	}
       },
       "required": [
         "tags"
