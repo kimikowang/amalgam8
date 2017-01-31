@@ -20,7 +20,17 @@
       "type": "string"
     },
     "match": {
-      "$ref": "#/definitions/match"
+      "type": "object",
+      "properties": {
+        "source": {
+          "$ref": "#/definitions/source"
+        },
+        "headers": {
+          "$ref": "#/definitions/headers"
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
     },
     "route": {
       "$ref": "#/definitions/route"
@@ -93,19 +103,6 @@
       },
       "minProperties": 1
     },
-    "uri": {
-      "title": "URI",
-      "description": "Backend URI definition",
-      "path": {
-        "type": "string"
-      },
-      "prefix": {
-        "type": "string"
-      },
-      "prefix_rewrite": {
-        "type": "string"
-      }
-    },
     "match": {
       "title": "Match",
       "description": "Conditions that must be true to apply the action or routing",
@@ -153,9 +150,6 @@
         "tags": {
           "$ref": "#/definitions/tags"
         },
-        "uri": {
-          "$ref": "#/definitions/uri"
-        },
         "weight": {
           "title": "Traffic weight",
           "description": "Percentage of traffic to route to this backend.",
@@ -176,7 +170,11 @@
           "type": "number",
           "minimum": 0,
           "exclusiveMinimum": false
-        }
+        },	
+	"lb_type": {
+	  "description": "The load balancing algorithm to use when picking an instance from the backend cluster.",
+	  "enum": ["round_robin","least_request","random"]
+	}
       },
       "required": [
         "tags"
